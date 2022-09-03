@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Astrospace</string>
+    <string name="none">NONE</string>
+    <string name="solar_system">SOLAR\nSYSTEM</string>
+    <string name="explore">EXPLORE</string>
+    <string name="telemetry_image">Telemetry Image</string>
+    <string name="a_very_friendly_and_descriptive_telemetry_information">A very friendly and descriptive telemetry information.</string>
+    <string name="see_now">See now</string>
+</resources>

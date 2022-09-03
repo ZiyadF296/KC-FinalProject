@@ -1,5 +1,6 @@
 package com.example.astrospace;
 
+import android.content.Intent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -9,21 +10,22 @@ import android.view.LayoutInflater;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * The adapter class which extends RecyclerView Adapter
  */
-public class Adapter extends RecyclerView.Adapter<Adapter.MyView> {
+public class TelemetryAdapter extends RecyclerView.Adapter<TelemetryAdapter.MyView> {
 
     // List with String type
-    private final List<TelemetryDetails> list;
+    private List<TelemetryDetails> list;
 
     /**
      * View Holder class which extends RecyclerView.ViewHolder
      */
     public static class MyView extends RecyclerView.ViewHolder {
-
+        View layout;
         ImageView image;
         TextView title;
         TextView description;
@@ -34,6 +36,7 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyView> {
         public MyView(View view) {
             super(view);
 
+            layout = view.findViewById(R.id.layout_view);
             image = view.findViewById(R.id.image);
             title = view.findViewById(R.id.title);
             description = view.findViewById(R.id.description);
@@ -41,9 +44,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyView> {
     }
 
     /**
-     *Constructor for adapter class which takes a list of String type
+     * Constructor for adapter class which takes a list of String type
      */
-    public Adapter(List<TelemetryDetails> horizontalList) {
+    public TelemetryAdapter(List<TelemetryDetails> horizontalList) {
         this.list = horizontalList;
     }
 
@@ -54,7 +57,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyView> {
     @NonNull
     @Override
     public MyView onCreateViewHolder(ViewGroup parent, int viewType) {
-        // Inflate UI component.
         final View itemView = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.telemetry_tile, parent, false);
 
@@ -66,12 +68,37 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyView> {
      * methods related to clicks on particular items of the RecyclerView.
      */
     @Override
-    public void onBindViewHolder(final MyView holder, final int position) {
+    public void onBindViewHolder(@NonNull final MyView holder, final int position) {
         final TelemetryDetails info = list.get(position);
+
+        // Add a margin to the first item with 50dp to the left.
+        if (info == this.list.get(0)) {
+            final ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
+            params.setMarginStart(75);
+            holder.itemView.setLayoutParams(params);
+        }
+
+        // If the item is the last item, add a margin to the right.
+        if (info == this.list.get(this.list.size() - 1)) {
+            final ViewGroup.MarginLayoutParams params = (ViewGroup.MarginLayoutParams) holder.itemView.getLayoutParams();
+            params.setMarginEnd(75);
+            holder.itemView.setLayoutParams(params);
+        }
 
         holder.image.setImageResource(info.imageSource);
         holder.title.setText(info.name);
         holder.description.setText(info.description);
+
+        holder.layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Navigate to the details view and also pass in the item that was clicked.
+                final Intent intent = new Intent(v.getContext(), DetailsView.class);
+                intent.putExtra("item", info);
+
+                v.getContext().startActivity(intent);
+            }
+        });
     }
 
     /**
