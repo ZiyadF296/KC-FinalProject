@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="25dp" >
+
+    <ImageView
+        android:id="@+id/telemetry_image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:background="@drawable/frame"
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/telemetry_image" />
+
+    <LinearLayout
+        android:layout_marginStart="10dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/telemetry_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:fontFamily="sans-serif-medium"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/telemetry_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif"
+            android:textColor="@color/grey"
+            android:maxLines="2" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:src="@drawable/next"
+        android:contentDescription="@string/learn_more" />
+
+</LinearLayout>

@@ -12,7 +12,6 @@ import com.airbnb.lottie.LottieAnimationView;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,5 +52,7 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         }, 10000); // 10 Seconds
+
+        FavoritesManager.initFromDisk(this);
     }
 }

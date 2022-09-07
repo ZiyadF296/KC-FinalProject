@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,19 +12,198 @@
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-<ImageView
-                android:id="@+id/image_view"
+            <LinearLayout
+                android:layout_marginVertical="20dp"
+                android:layout_marginHorizontal="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <ImageView
+                    android:id="@+id/back_button"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/back"
+                    android:contentDescription="@string/back" />
+
+                <Space
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="10dp" />
+
+                <ImageView
+                    android:id="@+id/favorite_button"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@drawable/favorite"
+                    android:contentDescription="@string/back" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/telemetry_image"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/placeholder" />
+                android:contentDescription="Telemetry View" />
+
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_gravity="start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/telemetry_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="26sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white" />
+
+                <TextView
+                    android:id="@+id/telemetry_latin_name"
+                    android:layout_marginStart="6dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:textColor="@color/grey" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_gravity="start"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="30dp"
+                android:gravity="start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_gravity="start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:textColor="@color/grey"
+                        android:text="Mass" />
+
+                    <TextView
+                        android:id="@+id/telemetry_mass"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_gravity="start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:textColor="@color/grey"
+                        android:text="Age" />
+
+                    <TextView
+                        android:id="@+id/telemetry_age"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent" />
+
+                <LinearLayout
+                    android:layout_gravity="start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="17sp"
+                        android:textColor="@color/grey"
+                        android:text="Distance" />
+
+                    <TextView
+                        android:id="@+id/telemetry_dist"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:textColor="@color/white" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/telemetry_description"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:textColor="#C0C0C0" />
+
+            <TextView
+                android:gravity="start"
+                android:layout_gravity="start"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:text="@string/gallery"
+                android:textColor="@color/white" />
+
+            <GridView
+                android:id="@+id/telemetry_gallery"
+                android:layout_marginVertical="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:horizontalSpacing="20dp"
+                android:numColumns="2"
+                android:verticalSpacing="10dp" />
 
         </LinearLayout>
-
 
     </ScrollView>
 

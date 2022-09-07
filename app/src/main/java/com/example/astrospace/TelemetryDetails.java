@@ -32,7 +32,7 @@ public class TelemetryDetails implements Serializable {
         this.galleryPaths = galleryPaths;
     }
 
-    static TelemetryDetails[] spaceObjects = {
+    private static final TelemetryDetails[] TELEMETRIES = {
         // Planets
         new TelemetryDetails(R.drawable.mercury, "Planets", "Mercury", "Hermes", "The smallest and innermost planet in the Solar System. Its orbit around the Sun takes 87.97 Earth days, the shortest of all the planets in the Solar System. It is named after the Roman deity Mercury, the messenger to the gods.", 2439.7, 4.54, 3.3011e23, new int[] {R.drawable.mercury_1, R.drawable.mercury_2, R.drawable.mercury_3}),
         new TelemetryDetails(R.drawable.venus, "Planets", "Venus", "Aphrodite", "Venus is the second planet from the Sun. It is named after the Roman goddess of love and beauty. As the brightest natural object in Earth's night sky after the Moon, Venus can cast shadows and can be, on rare occasion, visible to the naked eye in broad daylight.", 0.72, 4.5, 0.815, new int[] {R.drawable.venus_1, R.drawable.venus_2, R.drawable.venus_3}),
@@ -73,4 +73,8 @@ public class TelemetryDetails implements Serializable {
         new TelemetryDetails(R.drawable.viking_2, "Satellites & Rovers", "Mars Rover", "Viking 2", "A robotic spacecraft that was part of NASA's Viking program. It was launched on August 20, 1975, and landed on Mars on July 20, 1976. It was the first spacecraft to successfully land on Mars, and the first to transmit images back to Earth.", 34.1, 4.54, 1.5e4, new int[] {R.drawable.viking_2_1}),
         new TelemetryDetails(R.drawable.phoenix, "Satellites & Rovers", "Mars Rover", "Phoenix", "A robotic spacecraft that was part of NASA's Mars Exploration Program. It was launched on August 4, 2007, and landed on Mars on May 25, 2008. It was the first spacecraft to land on Mars in the northern hemisphere, and the first to land in the Martian arctic.", 34.1, 4.54, 1.5e4, new int[] {R.drawable.phoenix_1, R.drawable.phoenix_2}),
     };
+
+    public static TelemetryDetails[] getTelemetries() {
+        return TELEMETRIES;
+    }
 }

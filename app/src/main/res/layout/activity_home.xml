@@ -1,63 +1,379 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".HomeActivity">
 
-    <LinearLayout
-        android:layout_marginTop="30dp"
-        android:layout_marginHorizontal="30dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Let's Explore,"
-            android:textSize="22sp"
-            android:fontFamily="sans-serif-medium"
-            android:textColor="#AAAAAA"/>
-
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="This Solar System 🚀"
-            android:textSize="24sp"
-            android:fontFamily="sans-serif-black"
-            android:textColor="@color/white"/>
-
-    </LinearLayout>
-
-    <HorizontalScrollView
-        android:layout_marginTop="25dp"
+    <ScrollView
+        android:id="@+id/home_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fillViewport="true"
-        android:scrollbarSize="0dp">
+        android:layout_height="0dp"
+        android:layout_weight="1" >
 
         <LinearLayout
-            android:id="@+id/categories_list"
+            android:orientation="vertical"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Let's Explore,"
+                    android:textSize="22sp"
+                    android:fontFamily="sans-serif-medium"
+                    android:textColor="#AAAAAA"/>
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="This Solar System 🚀"
+                    android:textSize="24sp"
+                    android:fontFamily="sans-serif-black"
+                    android:textColor="@color/white"/>
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:layout_marginTop="25dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true"
+                android:scrollbarSize="0dp">
+
+                <LinearLayout
+                    android:id="@+id/categories_list"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="10dp" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/telemetry_list"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/latest_news"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/white"/>
+
+            <!-- Only a temporary progress indicator while latest
+            news loads -->
+            <ProgressBar
+                android:id="@+id/latest_news_loading_indicator"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/latest_news"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
 
         </LinearLayout>
 
-    </HorizontalScrollView>
+    </ScrollView>
 
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="10dp" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/telemetry_list"
-        android:orientation="horizontal"
+    <ScrollView
+        android:id="@+id/news_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="News"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/white"/>
+
+            <!-- Only a temporary progress indicator while latest
+            news loads -->
+            <ProgressBar
+                android:id="@+id/news_loading_indicator"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/descriptive_news_list"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/sat_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/astronauts_in_space"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="See who's up there... The awesome dedicated their research for science."
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/grey"/>
+
+            <!-- Only a temporary progress indicator while latest
+            astronauts loads -->
+            <ProgressBar
+                android:id="@+id/astronauts_loading_indicator"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/astronauts_list"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/discover_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/pictures_from_space"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Have a look at the pictures taken from rovers and satellites taken in space."
+                android:textSize="16sp"
+                android:fontFamily="sans-serif"
+                android:textColor="@color/grey"/>
+
+            <!-- Only a temporary progress indicator while latest
+            mars images loads -->
+            <ProgressBar
+                android:id="@+id/mars_gallery_loading_indicator"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:id="@+id/mars_gallery"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ScrollView
+        android:id="@+id/favorites_view"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_marginTop="30dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Favorites"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="@color/white"/>
+
+            <LinearLayout
+                android:layout_marginTop="20dp"
+                android:id="@+id/no_favorite_lottie"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <LinearLayout
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="start"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="You have no favorites yet"
+                        android:textSize="18sp"
+                        android:textColor="@color/white"
+                        android:fontFamily="sans-serif-medium" />
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Tap the heart icon to add favorites on any telemetry item object."
+                        android:textSize="14sp"
+                        android:textColor="@color/grey"
+                        android:fontFamily="sans-serif" />
+
+                </LinearLayout>
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:layout_gravity="start"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:maxHeight="20dp"
+                    app:lottie_rawRes="@raw/favorite"
+                    app:lottie_autoPlay="true"
+                    app:lottie_loop="true"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_favorites_list"
+                android:layout_marginTop="20dp"
+                android:layout_marginHorizontal="30dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/bg" >
+
+        <ImageView
+            android:id="@+id/home_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="25dp"
+            android:src="@drawable/home_selected"
+            android:contentDescription="@string/home" />
+
+        <ImageView
+            android:id="@+id/news_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="25dp"
+            android:src="@drawable/news_deselected"
+            android:contentDescription="@string/news" />
+
+        <ImageView
+            android:id="@+id/sat_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="25dp"
+            android:src="@drawable/sat_deselected"
+            android:contentDescription="@string/news" />
+
+        <ImageView
+            android:id="@+id/discover_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="25dp"
+            android:src="@drawable/discover_deselected"
+            android:contentDescription="@string/news" />
+
+        <ImageView
+            android:id="@+id/favorites_button"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="25dp"
+            android:src="@drawable/favorites_deselected"
+            android:contentDescription="@string/favorites" />
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -10,30 +10,28 @@ import android.view.LayoutInflater;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.io.Serializable;
 import java.util.List;
 
 /**
  * The adapter class which extends RecyclerView Adapter
  */
-public class TelemetryAdapter extends RecyclerView.Adapter<TelemetryAdapter.MyView> {
-
-    // List with String type
-    private List<TelemetryDetails> list;
+public class TelemetryAdapter extends RecyclerView.Adapter<TelemetryAdapter.TelemetryView> {
+    // List with [TelemetryDetails] type
+    private final List<TelemetryDetails> list;
 
     /**
      * View Holder class which extends RecyclerView.ViewHolder
      */
-    public static class MyView extends RecyclerView.ViewHolder {
-        View layout;
-        ImageView image;
-        TextView title;
-        TextView description;
+    public static class TelemetryView extends RecyclerView.ViewHolder {
+        final View layout;
+        final ImageView image;
+        final TextView title;
+        final TextView description;
 
         /**
          * Parameterised constructor for View Holder class which takes the view as a parameter.
          */
-        public MyView(View view) {
+        public TelemetryView(View view) {
             super(view);
 
             layout = view.findViewById(R.id.layout_view);
@@ -56,11 +54,11 @@ public class TelemetryAdapter extends RecyclerView.Adapter<TelemetryAdapter.MyVi
      */
     @NonNull
     @Override
-    public MyView onCreateViewHolder(ViewGroup parent, int viewType) {
+    public TelemetryView onCreateViewHolder(ViewGroup parent, int viewType) {
         final View itemView = LayoutInflater.from(parent.getContext()).
                 inflate(R.layout.telemetry_tile, parent, false);
 
-        return new MyView(itemView);
+        return new TelemetryView(itemView);
     }
 
     /**
@@ -68,7 +66,7 @@ public class TelemetryAdapter extends RecyclerView.Adapter<TelemetryAdapter.MyVi
      * methods related to clicks on particular items of the RecyclerView.
      */
     @Override
-    public void onBindViewHolder(@NonNull final MyView holder, final int position) {
+    public void onBindViewHolder(@NonNull final TelemetryView holder, final int position) {
         final TelemetryDetails info = list.get(position);
 
         // Add a margin to the first item with 50dp to the left.
@@ -94,7 +92,7 @@ public class TelemetryAdapter extends RecyclerView.Adapter<TelemetryAdapter.MyVi
             public void onClick(View v) {
                 // Navigate to the details view and also pass in the item that was clicked.
                 final Intent intent = new Intent(v.getContext(), DetailsView.class);
-                intent.putExtra("item", info);
+                intent.putExtra("telemetry", info);
 
                 v.getContext().startActivity(intent);
             }

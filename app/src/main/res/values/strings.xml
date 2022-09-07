@@ -6,4 +6,16 @@
     <string name="telemetry_image">Telemetry Image</string>
     <string name="a_very_friendly_and_descriptive_telemetry_information">A very friendly and descriptive telemetry information.</string>
     <string name="see_now">See now</string>
+    <string name="back">Back</string>
+    <string name="news_article_image">News Article Image</string>
+    <string name="learn_more">Learn more</string>
+    <string name="telemetry_view">Telemetry View</string>
+    <string name="gallery">Gallery</string>
+    <string name="home">Home</string>
+    <string name="news">News</string>
+    <string name="favorites">Favorites</string>
+    <string name="latest_news">Latest News</string>
+    <string name="astronauts_in_space">Astronauts in Space</string>
+    <string name="pictures_from_space">Pictures from Space</string>
+    <string name="mars_image">Mars Image</string>
 </resources>
