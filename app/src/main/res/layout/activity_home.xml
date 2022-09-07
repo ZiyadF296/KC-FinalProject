@@ -170,7 +170,7 @@
                 android:layout_marginHorizontal="30dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="See who's up there... The awesome dedicated their research for science."
+                android:text="See who's up there... the astronauts that spent time for science."
                 android:textSize="16sp"
                 android:fontFamily="sans-serif"
                 android:textColor="@color/grey"/>
@@ -297,7 +297,7 @@
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Tap the heart icon to add favorites on any telemetry item object."
+                        android:text="Tap the heart icon to add favorites on any telemetry item."
                         android:textSize="14sp"
                         android:textColor="@color/grey"
                         android:fontFamily="sans-serif" />
